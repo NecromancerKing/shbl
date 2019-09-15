@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="appController">
+
+<head>
+    <base href="/">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Oratio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="apple-touch-icon" href="assets/theme/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/theme/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/theme/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/theme/ico/152.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="{{app.description}}" name="description" />
+    <meta content="{{app.author}}" name="author" />
+
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Vendor Styles-->
+    
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrapv3/css/bootstrap.min.css?ver=1.0.0.20190915.142040" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css?ver=1.0.0.20190915.142040" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/angular-loading-bar/loading-bar.css?ver=1.0.0.20190915.142040" />
+
+    <link id="lazyload_placeholder">
+
+    <!-- Theme Styles -->
+    
+    <link rel="stylesheet" type="text/css" href="assets/theme/css/pages-icons.css?ver=1.0.0.20190915.142040" />
+    <link rel="stylesheet" type="text/css" href="assets/theme/css/pages.css?ver=1.0.0.20190915.142040" />
+
+    <!-- Site Styles -->
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?ver=1.0.0.20190915.142040" />
+    <link rel="stylesheet" type="text/css" href="assets/css/progress-wizard.min.css?ver=1.0.0.20190915.142040" />
+
+    <!--[if lte IE 9]>
+        <link href="assets/theme/css/ie9.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+            <link href="assets/plugins/mapplic/css/mapplic-ie.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+</head>
+
+<body class="fixed-header" ng-class="bodyClass">
+    <div class="full-height" ui-view></div>
+    <!-- BEGIN JQUERY JS -->
+    
+    <script src="assets/plugins/jquery/jquery-1.11.1.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-helper/jquery.helper.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/modernizr.custom.js?ver=1.0.0.20190915.142040"></script>
+    <!-- END JQUERY JS -->
+
+    <!-- BEGIN VENDOR JS -->
+    
+    <script src="assets/plugins/jquery-ui/jquery-ui.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery/jquery-easy.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-bez/jquery.bez.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-actual/jquery.actual.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/classie/classie.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular/angular.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-touch/angular-touch.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-sanitize/angular-sanitize.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-local-storage/angular-local-storage.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-animate/angular-animate.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-bootstrap/ui-bootstrap-tpls.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-ui-router/angular-ui-router.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-ui-router-tabs/ui-router-tabs.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-ui-util/ui-utils.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-oc-lazyload/ocLazyLoad.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-loading-bar/loading-bar.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-audio/angular.audio.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/angular-wizard/angular-wizard.min.js?ver=1.0.0.20190915.142040"></script>
+    <script src="assets/plugins/ng-eatclick/ng-eatclick.js?ver=1.0.0.20190915.142040"></script>
+    <!-- END VENDOR JS -->
+
+    <!-- BEGIN THEME JS -->
+    
+    <script src="assets/theme/js/pages.js?ver=1.0.0.20190915.142040"></script>
+    <!-- END THEME JS -->
+
+    <!-- BEGIN CORE JS -->
+    
+    <script src="app/app.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/configs/config.lazyload.modules.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/constants/constant.url.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/configs/config.lazyload.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/configs/config.routes.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/configs/config.startup.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/configs/config.templateCache.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/controllers/appController.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/configs/config.localStorageService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/eventService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/stateService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/notificationService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/errorHandler.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/urlHelper.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/services/dateTimeHelper.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/common/directives/cs-select.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/services/misc/storageService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/services/misc/authService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/services/misc/authInterceptorService.js?ver=1.0.0.20190915.142040"></script>
+    <script src="app/services/misc/generalService.js?ver=1.0.0.20190915.142040"></script>
+    <!-- END CORE JS -->
+    <script src="app/constants/constant.ngSettings.js"></script>
+</body>
+
+</html>

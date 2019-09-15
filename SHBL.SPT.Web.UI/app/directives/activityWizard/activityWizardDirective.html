@@ -1,0 +1,22 @@
+﻿<div class="container-fluid container-fixed-lg">
+    <wizard on-finish="finished()" class="bg-white" hide-indicators="true">
+        <wz-step title="">
+            <div ng-include="wizardIntro" include-replace></div>
+        </wz-step>
+        <wz-step title="">
+            <div ng-include="wizardActivity" include-replace></div>
+        </wz-step>
+        <wz-step title="">
+            <div ng-include="wizardSummary" include-replace></div>
+        </wz-step>
+    </wizard>
+    <div class="wizard-footer padding-20 bg-master-light">
+        <p class="small hint-text pull-left no-margin">
+            The activity above is solely intended for this case study and is therefore not to be used elsewhere.
+        </p>
+        <div class="pull-right">
+            <img width="100" height="28" ui-jq="unveil" data-src-retina="assets/img/logo_2x.png" data-src="assets/img/logo.png" alt="logo" src="assets/img/logo_2x.png">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

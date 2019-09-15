@@ -1,0 +1,109 @@
+﻿<div class="container-fluid container-fixed-lg col-xlg-12">
+    <ul class="breadcrumb">
+        <li>
+            <a ui-sref="app.dashboard">Home</a>
+        </li>
+        <li>
+            <a class="active">Add User</a>
+        </li>
+    </ul>
+    <div class="col-sm-4 col-xlg-4">
+        <h1 class="page-title">Add new user</h1>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="full-height sm-p-t-30 col-xlg-12">
+        <div class="container-sm-height full-height">
+            <div class="row row-sm-height">
+                <div class="col-sm-12 col-sm-height col-middle">
+                    <form id="form-userProfile" class="p-t-15" role="form" name="userInfo" ng-submit="addUser()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.email.$invalid && !userInfo.email.$pristine }">
+                                    <label>Email</label>
+                                    <input type="email" name="email" class="form-control" ng-model="model.Email" required>
+                                </div>
+                                <label class="error" for="email" ng-show="userInfo.email.$invalid && !userInfo.email.$pristine">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.firstName.$invalid && !userInfo.firstName.$pristine }">
+                                    <label>First Name</label>
+                                    <input type="text" name="firstName" placeholder="John" class="form-control" ng-model="model.FirstName" required>
+                                </div>
+                                <label class="error" for="firstName" ng-show="userInfo.firstName.$invalid && !userInfo.firstName.$pristine">This field is required.</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.lastName.$invalid && !userInfo.lastName.$pristine }">
+                                    <label>Last Names</label>
+                                    <input type="text" name="lastName" placeholder="Smith" class="form-control" ng-model="model.LastName" required>
+                                </div>
+                                <label class="error" for="lastName" ng-show="userInfo.lastName.$invalid && !userInfo.lastName.$pristine">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.password.$invalid && !userInfo.password.$pristine }">
+                                    <label>Password</label>
+                                    <input type="password" name="password" placeholder="Minimum of 6 Characters" class="form-control" ng-minlength="6" ng-model="model.Password" required>
+                                </div>
+                                <label class="error" for="password" ng-show="userInfo.password.$error.minlength">Password should have at least 6 characters</label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.confirmPassword.$invalid && !userInfo.confirmPassword.$pristine }">
+                                    <label>Confirm Password</label>
+                                    <input type="password" name="confirmPassword" placeholder="Confirm Password" class="form-control" compare-to="model.Password" ng-model="model.ConfirmPassword" required>
+                                    <label class="error" for="confirmPassword" ng-show="userInfo.confirmPassword.$invalid && !userInfo.confirmPassword.$pristine">Password and Confirm Password must be same.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.gender.$invalid && !userInfo.gender.$pristine }">
+                                    <label>Gender</label>
+                                    <select name="gender" class="cs-select cs-skin-slide" ng-model="model.Gender" cs-select>
+                                        <option value="m">Male</option>
+                                        <option value="f">Female</option>
+                                    </select>
+                                </div>
+                                <label class="error" for="gender" ng-show="userInfo.gender.$invalid && !userInfo.gender.$pristine">This field is required.</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.ageGroup.$invalid && !userInfo.ageGroup.$pristine }">
+                                    <label>Age Group</label>
+                                    <select name="ageGroup" class="cs-select cs-skin-slide" ng-model="model.AgeGroup" cs-select>
+                                        <option value="1">15-25</option>
+                                        <option value="2">25-35</option>
+                                        <option value="3">Above 35</option>
+                                    </select>
+                                </div>
+                                <label class="error" for="ageGroup" ng-show="userInfo.ageGroup.$invalid && !userInfo.ageGroup.$pristine">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userInfo.cFType.$invalid && !userInfo.cFType.$pristine }">
+                                    <label>CF Type</label>
+                                    <select name="cFType" class="cs-select cs-skin-slide" ng-model="model.CFType" cs-select>
+                                        <option value="1">Target</option>
+                                        <option value="2">Non-Target</option>
+                                    </select>
+                                </div>
+                                <label class="error" for="cFType" ng-show="userInfo.cFType.$invalid && !userInfo.cFType.$pristine">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary btn-cons no-margin m-t-12 pull-right" type="submit" ng-disabled="userInfo.$invalid">Add User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

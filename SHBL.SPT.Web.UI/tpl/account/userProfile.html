@@ -1,0 +1,56 @@
+﻿<div class="container-fluid container-fixed-lg col-xlg-12">
+    <ul class="breadcrumb">
+        <li>
+            <a ui-sref="app.dashboard">Home</a>
+        </li>
+        <li>
+            <a class="active">Profile</a>
+        </li>
+    </ul>
+    <div class="col-sm-4 col-xlg-4">
+        <h1 class="page-title">Edit Profile</h1>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="full-height sm-p-t-30 col-xlg-12">
+        <div class="container-sm-height full-height">
+            <div class="row row-sm-height">
+                <div class="col-sm-12 col-sm-height col-middle">
+                    <form id="form-userProfile" class="p-t-15" role="form" name="userProfile" ng-submit="updateProfile()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div pg-form-group class="form-group form-group-default">
+                                    <label>Email</label>
+                                    <input type="email" name="email" class="form-control" ng-model="model.Email" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userProfile.firstName.$invalid && !userProfile.firstName.$pristine }">
+                                    <label>First Name</label>
+                                    <input type="text" name="firstName" placeholder="John" class="form-control" ng-model="model.FirstName">
+                                </div>
+                                <label class="error" for="firstName" ng-show="userProfile.firstName.$invalid && !userProfile.firstName.$pristine">This field is required.</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': userProfile.lastName.$invalid && !userProfile.lastName.$pristine }">
+                                    <label>Last Names</label>
+                                    <input type="text" name="lastName" placeholder="Smith" class="form-control" ng-model="model.LastName">
+                                </div>
+                                <label class="error" for="lastName" ng-show="userProfile.lastName.$invalid && !userProfile.lastName.$pristine">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary btn-cons no-margin m-t-12 pull-right" type="submit" ng-disabled="userProfile.$invalid">Apply</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

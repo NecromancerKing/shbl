@@ -1,0 +1,25 @@
+﻿<div class="activity-border">
+    <div class="bottom-left m-l-30" ng-if="model.testResult">
+        <ul class="list-unstyled">
+            <li><h5>Test result :</h5></li>
+            <li><span style="color:green"><strong>Correct {{model.testResult.Corrects}} </strong></span></li>
+            <li><span style="color:red"><strong>Wrong {{model.testResult.Wrongs}}</strong></span></li>
+            <li><span style="color:black"><strong>Total {{model.testResult.Total}}</strong></span></li>
+        </ul>
+    </div>
+    <div class="padding-30 m-b-100">
+        <h5>
+            <span ng-if="model.activityInfo.ActivityName != 'Posttest'">Thank you for taking the time to complete this activity.<br />We truly value the information you have provided.<br />Your responses will contribute to and suggest new lines of approach to our analyses of the speech data.<br />You may access the next activity from the sidebar menu within 48 hours.</span>
+            <span ng-if="model.activityInfo.ActivityName == 'Posttest'">Thank you for taking the time to complete this activity.<br />We truly value the information you have provided.<br />Your responses will contribute to and suggest new lines of approach to our analyses of the speech data.<br />Once again, we are extremely grateful for your valuable time and your honest information.<br />Good Luck and hope this program has been helpful to you.</span>
+        </h5>
+    </div>
+    <div class="padding-20 bg-white">
+        <ul class="pager wizard">
+            <li class="next">
+                <button type="button" class="btn btn-primary btn-cons btn-animated from-left fa fa-play pull-right" ng-click="finish()" wz-finish>
+                    <span>Finish</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

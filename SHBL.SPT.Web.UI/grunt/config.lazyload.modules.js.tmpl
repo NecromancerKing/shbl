@@ -1,0 +1,12 @@
+﻿var LAZY_LOAD_MODULES = %MODULES%;
+
+var APPLICATION_VERSION = '%VERSION%';
+
+window.onload = function ()
+{
+    // fix for windows 8
+    if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
+    {
+        document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="assets/theme/css/windows.chrome.fix.css" />';
+    }
+}

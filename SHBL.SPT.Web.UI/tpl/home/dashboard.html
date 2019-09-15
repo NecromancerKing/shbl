@@ -1,0 +1,53 @@
+﻿<div class="container-fluid padding-25 sm-padding-10 sm-gutter">
+    <div>
+        <ul class="progress-indicator">
+            <li ng-repeat="ind in indicators" ng-class="{completed: ind.Style === 'completed', active: ind.Style === 'active'}">
+                <a ui-sref="{{ind.Route}}" eat-click-if="!ind.IsActive" class="bold">
+                    <span class="bubble"></span><i ng-if="ind.Style === 'completed'" class="fa fa-check-circle"></i> {{ind.Title}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11 col-sm-12 col-xlg-11 m-t-50 col-centered">
+            <div id="portletInfo" class="panel panel-default bg-info-lighter b-rad-md" pg-portlet>
+                <span class="top-right m-t-10 m-r-10" style="z-index:10;">Lang (<a href="" ng-click="switchLang('en')">En</a>|<a href="" ng-click="switchLang('fa')">فا</a>)</span>
+                <div class="panel-heading m-t-30 m-b-10">
+                    <div class="panel-title" ng-if="lang === 'en'">
+                        <span>Welcome to Oratio!</span>
+                    </div>
+                    <div dir="rtl" class="panel-title pull-right" ng-if="lang === 'fa'">
+                        <span>به Oratio خوش آمدید!</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p ng-if="lang === 'en'">
+                        Oratio is a study tool to assess your precision at speech perception as a foreign speaker of English.
+                        This program is intended only to experiment the objectives of a study in speech perception and therefore is not a measure for proficiency by any standard.<br /><br />
+                        Your task is comprised of 2 test and 6 training sessions which are designed in a simplistic manner, and the order
+                        of each activity is decided based on the assumed timeline in the respective research paper.<br /><br />
+                        <span class="bulletItem">Upon completion of each activity please access the next activity from the side-menu in 48 hours and perform it.</span><br />
+                        <span class="bulletItem">Activities are not time-bound.</span><br />
+                        By participating in this program you will have no obligations to complete the activities all the way through,
+                        and the results of your tests shall not be disclosed to any educational, political or corporate structure, whatsoever.<br /><br />
+                        Thank you for the time that you will generously dedicate to this study!
+                        <br /><br /><span ng-if="activityRoute != null" class="pull-right"><a ui-sref="{{activityRoute}}"><button class="btn btn-primary navbar-btn">Proceed to your current activty</button></a></span>
+                    </p>
+                    <p dir="rtl" align="right" style="font-family:'Yekan' !important;" ng-if="lang === 'fa'">
+                        Oratio
+                        ابزاری تحقیقاتی است  که به منظور سنجش دقت شما در گفتار زبان انگلیسی به عنوان یک کاربر خارجی، طراحی شده است.<br />
+                        این برنامه تنها به قصد آزمودن اهداف یک پروژه تحقیقاتی در حوزه درک گفتار ساخته شده و به هیچ وجه معیاری استاندارد برای تعیین تسلط گفتاری نمی باشد.<br />
+                        فعالیت های شما شامل 2 جلسه تست و 6 جلسه تمرین است. این فعالیت ها با طراحی ساده و مطابق با جدول زمانی تعیین شده در تحقیق مربوطه تنظیم شده اند.<br /><br />
+                        <span class="bulletItem">پس از خاتمه هر فعالیت، لطفا فعالیت بعدی را ظرف مدت 48 ساعت با دسترسی از منوی کناری انجام دهید.</span><br />
+                        <span class="bulletItem">فعالیت ها محدودیت زمانی ندارند.</span><br />
+                        با شرکت در این برنامه شما هیچ الزامی برای انجام کامل تمامی تست و تمرین ها نداشته و حق انصراف از ادامه این روتین برای شما کاملا محفوظ است.
+                        همچنین، نتایج این آزمون ها در اختیار هیچ گونه سازمان آموزشی، سیاسی یا اقتصادی قرار نخواهد گرفت.<br /><br />
+                        از فرصتی که بزرگوارانه به این برنامه تحقیقاتی اختصاص می دهید سپاسگزاریم!
+                        <br /><br /><span ng-if="activityRoute != null" class="pull-right"><a ui-sref="{{activityRoute}}"><button class="btn btn-primary navbar-btn semi-bold">انجام فعالیت جاری</button></a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿<div class="activity-border">
+    <div class="padding-30 m-t-20">
+        <i class="fa fa-bell fa-2x hint-text"></i>
+        <h2>{{model.activityInfo.ActivityTitle}}</h2>
+        <p class="font-larger" ng-bind-html="model.activityInfo.ActivityDesc" />
+    </div>
+    <div class="padding-20 bg-white">
+        <ul class="pager wizard">
+            <li class="next">
+                <button type="button" class="btn btn-primary btn-cons btn-animated from-left fa fa-hand-o-right pull-right" ng-click="startActivity()">
+                    <span>{{model.IntroState}}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

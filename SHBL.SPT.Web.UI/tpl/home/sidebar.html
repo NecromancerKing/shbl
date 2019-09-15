@@ -1,0 +1,59 @@
+<!-- BEGIN SIDEBAR -->
+<div ng-controller="sidebarController" class="page-sidebar" data-pages="sidebar" pg-sidebar>
+    <div id="appMenu" class="sidebar-overlay-slide from-top">
+    </div>
+    <!-- BEGIN SIDEBAR HEADER -->
+    <div class="sidebar-header">
+        <img src="assets/img/logo_white_r.png" alt="logo" class="brand" data-src="assets/img/logo_white_r.png" data-src-retina="assets/img/logo_white_r.png">
+        <div class="sidebar-header-controls">
+            <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button">
+                <i class="fa fa-angle-down fs-16"></i>
+            </button>
+            <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button">
+                <i class="fa fs-12"></i>
+            </button>
+        </div>
+    </div>
+    <!-- END SIDEBAR HEADER -->
+    <!-- BEGIN SIDEBAR MENU -->
+    <div class="sidebar-menu">
+        <ul class="menu-items">
+            <li class="m-t-30">
+                <a ui-sref="app.dashboard">
+                    <span class="title">Dashboard</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-home"></i></span>
+            </li>
+            <li class="" ng-if="model.ActivityName == 'PreTest'">
+                <a ui-sref="app.activity.pretest">
+                    <span class="title">{{model.ActivityTitle}}</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-note"></i></span>
+            </li>
+            <li class="" ng-if="model.ActivityName == 'Training'">
+                <a ui-sref="app.activity.training">
+                    <span class="title">{{model.ActivityTitle}}</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-note"></i></span>
+            </li>
+            <li class="" ng-if="model.ActivityName == 'PostTest'">
+                <a ui-sref="app.activity.posttest">
+                    <span class="title">{{model.ActivityTitle}}</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-note"></i></span>
+            </li>
+            <li class="" ng-if="model.IsAdmin == true">
+                <a ui-sref="app.account.adduser">
+                    <span class="title">Add User</span>
+                </a>
+                <span class="icon-thumbnail "><i class="pg-ordered_list"></i></span>
+            </li>
+        </ul>
+
+        <div class="bg-caption pull-bottom p-l-35 m-b-35 sm-m-b-20">
+            <img src="assets/img/logo_main_watermark.png" alt="logo" class="brand" data-src="assets/img/logo_main_watermark.png" data-src-retina="assets/img/logo_main_watermark.png">
+        </div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR -->

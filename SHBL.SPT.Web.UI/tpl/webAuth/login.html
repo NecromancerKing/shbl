@@ -1,0 +1,30 @@
+﻿<div class="text-center">
+    <p>Sign in to your account via email or <a ui-sref="auth.home.register">create a new account.</a>
+</div>
+<form id="form-login" name="login" class="p-t-15" role="form" novalidate ng-submit="submit(loginModel)">
+    <div class="row">
+        <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error' : login.userName.$invalid && !login.userName.$pristine }">
+            <label>Email</label>
+            <div class="controls">
+                <input type="email" name="username" placeholder="example@domain.com" class="form-control" ng-model="loginModel.userName" required>
+            </div>
+        </div>
+        <label class="error" for="username" ng-show="login.userName.$invalid && !login.userName.$pristine">This field is required.</label>
+        <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error' : login.password.$invalid && !login.password.$pristine }">
+            <label>Password</label>
+            <div class="controls">
+                <input type="password" class="form-control" name="password" placeholder="password" ng-model="loginModel.password" required>
+            </div>
+        </div>
+        <label class="error" for="password" ng-show="login.password.$invalid && !login.password.$pristine">This field is required.</label>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" ng-disabled="login.$invalid">Sign in</button>
+        </div>
+        <div class="col-md-6 text-right">
+            <a ui-sref="auth.home.forgetPassword" class="text-info small">Forget Password?</a>
+        </div>
+    </div>
+</form>

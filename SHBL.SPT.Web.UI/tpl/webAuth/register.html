@@ -1,0 +1,96 @@
+﻿<div class="text-center">
+    <p>Create a new account or sign in via <a class="bold" ui-sref="auth.home.login.default">email</a></p>
+</div>
+<form id="form-register" name="register" class="p-t-15" role="form" novalidate ng-submit="submit(registerModel)">
+    <div class="row">
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.firstName.$invalid && !register.firstName.$pristine }">
+                <label>First Name</label>
+                <input type="text" name="fname" placeholder="John" class="form-control" ng-model="registerModel.firstName" required>
+            </div>
+            <label class="error" for="fname" ng-show="register.firstName.$invalid && !register.firstName.$pristine">This field is required.</label>
+        </div>
+
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.lastName.$invalid && !register.lastName.$pristine }">
+                <label>Last Name</label>
+                <input type="text" name="lname" placeholder="Smith" class="form-control" ng-model="registerModel.lastName" required>
+            </div>
+            <label class="error" for="lname" ng-show="register.lastName.$invalid && !register.lastName.$pristine">This field is required.</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.email.$invalid && !register.email.$pristine }">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="example@domain.com" class="form-control" ng-model="registerModel.email" required>
+            </div>
+            <label class="error" for="email" ng-show="register.email.$invalid && !register.email.$pristine">Enter a valid email.</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.password.$invalid && !register.password.$pristine }">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Minimum of 6 Characters" class="form-control" ng-minlength="6" ng-model="registerModel.password" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.confirmPassword.$invalid && !register.confirmPassword.$pristine }">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" class="form-control" compare-to="registerModel.password" ng-model="registerModel.confirmPassword" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.gender.$invalid && !register.gender.$pristine }">
+                <label>Gender</label>
+                <select name="gender" class="cs-select cs-skin-slide" ng-model="registerModel.gender" cs-select>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.ageGroup.$invalid && !register.ageGroup.$pristine }">
+                <label>Age Group</label>
+                <select name="ageGroup" class="cs-select cs-skin-slide" ng-model="registerModel.ageGroup" cs-select>
+                    <option value="1">Under 13</option>
+                    <option value="3">Above 15</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div pg-form-group class="form-group form-group-default" ng-class="{ 'has-error': register.proficiencyLevel.$invalid && !register.proficiencyLevel.$pristine }">
+                <label>Proficiency Level</label>
+                <select name="proficiencyLevel" class="cs-select cs-skin-slide" ng-model="registerModel.proficiencyLevel" cs-select>
+                    <option value="1">Elementry/Beginner</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Upper-Intermediate/Advanced</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="error" for="password" ng-show="register.password.$error.minlength">Password should have at least 6 characters</label>
+            <label class="error" for="confirmPassword" ng-show="register.confirmPassword.$invalid && !register.confirmPassword.$pristine">Password and Confirm Password must be same.</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-cons m-t-10" type="submit" ng-disabled="register.$invalid">Create Account</button>
+        </div>
+    </div>
+</form>

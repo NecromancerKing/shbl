@@ -1,0 +1,12 @@
+﻿<!-- START Login Form -->
+<div class="text-center">
+    <p>Sign into your account via social media accounts or <a class="bold" ui-sref="auth.home.login.default">using your email</a> or <a class="bold" ui-sref="auth.home.register">create a new account.</a></p>
+</div>
+<div id="form-login-social" name="login" class="p-t-15" role="form" novalidate>
+    <div class="text-center">
+        <input type="image" class="input-xlg img-responsive inline" src="../../assets/img/button_facebook.png" ng-click="authExternalProvider('Facebook')" alt="Login with Facebook">
+        <input type="image" class="input-xlg img-responsive inline" src="../../assets/img/button_google.png" ng-click="authExternalProvider('Google')" alt="Login with Google">
+        <input type="image" class="input-xlg img-responsive inline" src="../../assets/img/button_windows.png" ng-click="authExternalProvider('Microsoft')" alt="Login with Microsoft">
+    </div>
+</div>
+<!--END Login Form-->

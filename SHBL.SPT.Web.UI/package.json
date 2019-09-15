@@ -1,0 +1,21 @@
+{
+  "name": "SHBL.SPT.Web.UI",
+  "version": "1.0.0",
+  "author": "",
+  "private": true,
+  "devDependencies":
+  {
+    "grunt": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-qunit": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-uglify-parallel": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-config": "*",
+    "grunt-backup": "*",
+    "grunt-ngindex": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*"
+  }
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="appController">
+
+<head>
+    <base href="/">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Oratio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="apple-touch-icon" href="assets/theme/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/theme/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/theme/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/theme/ico/152.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="{{app.description}}" name="description" />
+    <meta content="{{app.author}}" name="author" />
+
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Vendor Styles-->
+    <% if ('undefined' !== typeof vendorCssFiles) { vendorCssFiles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>?ver=<%= version %>" /><% }); } %>
+
+    <link id="lazyload_placeholder">
+
+    <!-- Theme Styles -->
+    <% if ('undefined' !== typeof themeCssFiles) { themeCssFiles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>?ver=<%= version %>" /><% }); } %>
+
+    <!-- Site Styles -->
+    <% if ('undefined' !== typeof siteCssFiles) { siteCssFiles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>?ver=<%= version %>" /><% }); } %>
+
+    <!--[if lte IE 9]>
+        <link href="assets/theme/css/ie9.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+            <link href="assets/plugins/mapplic/css/mapplic-ie.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+</head>
+
+<body class="fixed-header" ng-class="bodyClass">
+    <div class="full-height" ui-view></div>
+    <!-- BEGIN JQUERY JS -->
+    <% if ('undefined' !== typeof jquerylibFiles) { jquerylibFiles.forEach( function ( file ) { %>
+    <script src="<%= file %>?ver=<%= version %>"></script><% }); } %>
+    <!-- END JQUERY JS -->
+
+    <!-- BEGIN VENDOR JS -->
+    <% if ('undefined' !== typeof vendorlibFiles) { vendorlibFiles.forEach( function ( file ) { %>
+    <script src="<%= file %>?ver=<%= version %>"></script><% }); } %>
+    <!-- END VENDOR JS -->
+
+    <!-- BEGIN THEME JS -->
+    <% if ('undefined' !== typeof themelibFiles) { themelibFiles.forEach( function ( file ) { %>
+    <script src="<%= file %>?ver=<%= version %>"></script><% }); } %>
+    <!-- END THEME JS -->
+
+    <!-- BEGIN CORE JS -->
+    <% if ('undefined' !== typeof applibFiles) { applibFiles.forEach( function ( file ) { %>
+    <script src="<%= file %>?ver=<%= version %>"></script><% }); } %>
+    <!-- END CORE JS -->
+    <script src="app/constants/constant.ngSettings.js"></script>
+</body>
+
+</html>
