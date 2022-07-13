@@ -2,10 +2,6 @@
 using SHBL.SPT.UI.Model.Activities;
 using SHBL.SPT.UI.WebApi.Services.Activities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace SHBL.SPT.UI.WebApi.Controllers

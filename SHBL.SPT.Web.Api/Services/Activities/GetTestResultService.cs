@@ -1,12 +1,8 @@
 ﻿using SHBL.SPT.ApiFactory.Core;
 using SHBL.SPT.Business;
-using SHBL.SPT.DALFactory;
-using SHBL.SPT.Model.Word;
 using SHBL.SPT.UI.Model.Activities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace SHBL.SPT.UI.WebApi.Services.Activities
 {
