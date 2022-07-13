@@ -1,11 +1,11 @@
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.InterceptionExtension;
 using SHBL.SPT.BASE.Providers;
 using SHBL.SPT.BASE.Repository;
 using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
+using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
 
 namespace SHBL.SPT.DALFactory
 {
@@ -67,7 +67,7 @@ namespace SHBL.SPT.DALFactory
 
         protected virtual void RegisterType<TIRepository>(TIRepository instance) where TIRepository : IRepository
         {
-            this.Container.RegisterType<TIRepository>(new ContainerControlledLifetimeManager(),
+            Container.RegisterType<TIRepository>(new ContainerControlledLifetimeManager(),
                                                       new InjectionFactory((c) => instance));
                                                       //new Interceptor<InterfaceInterceptor>(),
                                                       //new InterceptionBehavior<LoggingInterceptionBehavior>());

@@ -1,7 +1,11 @@
-﻿using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.InterceptionExtension;
-using SHBL.SPT.BASE.Providers;
+﻿using SHBL.SPT.BASE.Providers;
 using System;
+using Unity;
+using Unity.Interception;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
+using Unity.Lifetime;
 
 namespace SHBL.SPT.ApiFactory.Core
 {

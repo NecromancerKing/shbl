@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Practices.Unity.InterceptionExtension;
 using System.Diagnostics;
+using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.PolicyInjection.Pipeline;
 
 namespace SHBL.SPT.DALFactory
 {
