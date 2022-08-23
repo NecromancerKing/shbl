@@ -2,14 +2,9 @@
 using SHBL.SPT.Model.Auth;
 using SHBL.SPT.Model.General;
 using SHBL.SPT.Model.Word;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SHBL.SPT.DAL.Context
 {

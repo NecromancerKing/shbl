@@ -1,6 +1,4 @@
-﻿using SHBL.SPT.BASE;
-using SHBL.SPT.BASE.Providers;
-using SHBL.SPT.DAL.Context;
+﻿using SHBL.SPT.DAL.Context;
 using SHBL.SPT.DALFactory;
 using System;
 
