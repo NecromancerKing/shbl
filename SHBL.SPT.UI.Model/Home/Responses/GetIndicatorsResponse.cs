@@ -1,5 +1,6 @@
 ﻿using SHBL.SPT.UI.Model.Base;
 using System.Collections.Generic;
+using SHBL.SPT.Model.Dto;
 
 namespace SHBL.SPT.UI.Model.Home
 {
@@ -7,17 +8,10 @@ namespace SHBL.SPT.UI.Model.Home
     {
         public GetIndicatorsResponse()
         {
-            Indicators = new List<Indicator>();
+            Indicators = new List<IndicatorDto>();
         }
 
-        public List<Indicator> Indicators { get; set; }
+        public List<IndicatorDto> Indicators { get; set; }
 
-        public class Indicator
-        {
-            public string Route { get; set; }
-            public string Title { get; set; }
-            public bool IsActive { get; set; }
-            public string Style { get; set; }
-        }
     }
 }

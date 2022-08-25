@@ -22,8 +22,8 @@ namespace SHBL.SPT.UI.WebApi
         public ExceptionBase(string message, string applicationCode, string className, string methodName)
             : base(message)
         {
-            this.ClassName = className;
-            this.MethodName = methodName;
+            ClassName = className;
+            MethodName = methodName;
         }
 
         public ExceptionBase(string message, string applicationCode, MethodBase methodBase) :
@@ -37,18 +37,18 @@ namespace SHBL.SPT.UI.WebApi
         {
             if (inner is ExceptionBase)
             {
-                this.ApplicationCode = (inner as ExceptionBase).ApplicationCode;
-                this.ClassName = (inner as ExceptionBase).ClassName;
-                this.MethodName = (inner as ExceptionBase).MethodName;
+                ApplicationCode = (inner as ExceptionBase).ApplicationCode;
+                ClassName = (inner as ExceptionBase).ClassName;
+                MethodName = (inner as ExceptionBase).MethodName;
             }
         }
 
         public ExceptionBase(string message, Exception inner, string applicationCode, string className, string methodName)
             : base(message, inner)
         {
-            this.ApplicationCode = applicationCode;
-            this.ClassName = className;
-            this.MethodName = methodName;
+            ApplicationCode = applicationCode;
+            ClassName = className;
+            MethodName = methodName;
         }
 
         public ExceptionBase(string message, Exception inner, string applicationCode, MethodBase methodBase) :
@@ -109,13 +109,13 @@ namespace SHBL.SPT.UI.WebApi
 
         protected void ModifyData(string key, string value)
         {
-            if (!this.Data.Contains(key))
+            if (!Data.Contains(key))
             {
-                this.Data.Add(key, value);
+                Data.Add(key, value);
             }
             else
             {
-                this.Data[key] = value;
+                Data[key] = value;
             }
         }
 

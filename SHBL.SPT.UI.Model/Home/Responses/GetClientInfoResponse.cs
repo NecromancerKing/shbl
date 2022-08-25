@@ -1,5 +1,4 @@
 ﻿using SHBL.SPT.UI.Model.Base;
-using System.Collections.Generic;
 
 namespace SHBL.SPT.UI.Model.Home.Responses
 {

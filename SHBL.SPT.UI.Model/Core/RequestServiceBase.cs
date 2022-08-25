@@ -1,6 +1,7 @@
-﻿using SHBL.SPT.UI.Model.Base;
+﻿using System.Threading.Tasks;
+using SHBL.SPT.UI.Model.Base;
 
-namespace SHBL.SPT.ApiFactory.Core
+namespace SHBL.SPT.UI.Model.Core
 {
     public abstract class RequestServiceBase
     {
@@ -9,7 +10,7 @@ namespace SHBL.SPT.ApiFactory.Core
     public abstract class RequestServiceBase<TResponse> : RequestServiceBase, IRequestService<TResponse>
         where TResponse : ResponseBase
     {
-        public abstract TResponse ProcessRequest();
+        public abstract Task<TResponse> ProcessRequest();
     }
 
     public abstract class RequestServiceBase<TRequest, TResponse>: RequestServiceBase, IRequestService<TRequest, TResponse>
@@ -17,6 +18,6 @@ namespace SHBL.SPT.ApiFactory.Core
         where TResponse:ResponseBase
         
     {
-        public abstract TResponse ProcessRequest(TRequest request);
+        public abstract Task<TResponse> ProcessRequest(TRequest request);
     }
 }

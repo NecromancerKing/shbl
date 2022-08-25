@@ -64,14 +64,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SHBL.SPT.BASE\SHBL.SPT.BASE.csproj">
-      <Project>{1adef882-4613-4e2b-ae60-5cb78ea717e6}</Project>
-      <Name>SHBL.SPT.BASE</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SHBL.SPT.DALFactory\SHBL.SPT.DALFactory.csproj">
-      <Project>{cbeb60e3-fb50-454b-bb51-993c7f9ec4e6}</Project>
-      <Name>SHBL.SPT.DALFactory</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SHBL.SPT.Model\SHBL.SPT.Model.csproj">
       <Project>{fbde09f0-a281-42a6-b6a3-743e311323f1}</Project>
       <Name>SHBL.SPT.Model</Name>

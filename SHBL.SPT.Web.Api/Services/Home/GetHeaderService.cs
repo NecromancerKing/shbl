@@ -1,34 +1,31 @@
-﻿using SHBL.SPT.ApiFactory.Core;
-using SHBL.SPT.Business;
-using SHBL.SPT.DALFactory;
-using SHBL.SPT.UI.Model.Home;
-using System;
-using System.Linq;
+﻿using SHBL.SPT.UI.Model.Home;
+using System.Threading.Tasks;
+using SHBL.SPT.Business.Interfaces;
+using SHBL.SPT.UI.Model.Core;
 
 namespace SHBL.SPT.UI.WebApi.Services.Home
 {
     public class GetHeaderService : RequestServiceBase<HeaderResponse>
     {
-        public override HeaderResponse ProcessRequest()
+        private readonly IUserService _userService;
+        private readonly AuthContext _authContext;
+
+        public GetHeaderService(IUserService userService, AuthContext authContext)
         {
-            var response = new HeaderResponse();
-            try
-            {
-                using (var uow = new SptUnitOfWork())
-                {
-                    var username = AuthContext.Instance.UserName;
-                    var user = uow.UserRepository.GetByUserName(username);
+            _userService = userService;
+            _authContext = authContext;
+        }
 
-                    response.Username = user.Person.FullName;
-                    response.Image = null;
-                }
-
-                return response;
-            }
-            catch (Exception)
+        public override async Task<HeaderResponse> ProcessRequest()
+        {
+            var user = await _userService.GetByUserNameAsync(_authContext.UserName);
+            var response = new HeaderResponse
             {
-                throw;
-            }
+                Username = user.Person.FullName,
+                Image = null
+            };
+
+            return response;
         }
     }
 }

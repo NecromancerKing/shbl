@@ -16,51 +16,23 @@ namespace SHBL.SPT.UI.WebApi
 
         public static TResponseModel Post<TResponseModel>(string path, object model = null, string token = null)
         {
-            try
-            {
-                return Post<TResponseModel, ModelStateErrorResult>(path, model, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Post<TResponseModel, ModelStateErrorResult>(path, model, token);
         }
 
         public static TResponseModel Post<TResponseModel>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return Post<TResponseModel, ModelStateErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Post<TResponseModel, ModelStateErrorResult>(path, content, token);
         }
 
         public static TResponseModel Post<TResponseModel, TErrorResult>(string path, object model = null, string token = null)
         {
-            try
-            {
-                StringContent content = GetContent(model);
-                return Post<TResponseModel, TErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var content = GetContent(model);
+            return Post<TResponseModel, TErrorResult>(path, content, token);
         }
 
         public static TResponseModel Post<TResponseModel, TErrorResult>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return Send<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Post);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Send<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Post);
         }
 
         #endregion
@@ -69,51 +41,23 @@ namespace SHBL.SPT.UI.WebApi
 
         public static async Task<TResponseModel> PostAsync<TResponseModel>(string path, object model = null, string token = null)
         {
-            try
-            {
-                return await PostAsync<TResponseModel, ModelStateErrorResult>(path, model, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await PostAsync<TResponseModel, ModelStateErrorResult>(path, model, token);
         }
 
         public static async Task<TResponseModel> PostAsync<TResponseModel>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return await PostAsync<TResponseModel, ModelStateErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await PostAsync<TResponseModel, ModelStateErrorResult>(path, content, token);
         }
 
         public static async Task<TResponseModel> PostAsync<TResponseModel, TErrorResult>(string path, object model = null, string token = null)
         {
-            try
-            {
-                StringContent content = GetContent(model);
-                return await PostAsync<TResponseModel, TErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var content = GetContent(model);
+            return await PostAsync<TResponseModel, TErrorResult>(path, content, token);
         }
 
         public static async Task<TResponseModel> PostAsync<TResponseModel, TErrorResult>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return await SendAsync<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Post);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await SendAsync<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Post);
         }
 
         #endregion
@@ -126,26 +70,12 @@ namespace SHBL.SPT.UI.WebApi
 
         public static TResponseModel Get<TResponseModel>(string path, string token = null)
         {
-            try
-            {
-                return Get<TResponseModel, ModelStateErrorResult>(path, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Get<TResponseModel, ModelStateErrorResult>(path, token);
         }
 
         public static TResponseModel Get<TResponseModel, TErrorResult>(string path, string token = null)
         {
-            try
-            {
-                return Send<TResponseModel, TErrorResult>(path, null, token, HttpMethod.Get);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Send<TResponseModel, TErrorResult>(path, null, token, HttpMethod.Get);
         }
 
         #endregion
@@ -154,26 +84,12 @@ namespace SHBL.SPT.UI.WebApi
 
         public static async Task<TResponseModel> GetAsync<TResponseModel>(string path, string token = null)
         {
-            try
-            {
-                return await GetAsync<TResponseModel, ModelStateErrorResult>(path, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await GetAsync<TResponseModel, ModelStateErrorResult>(path, token);
         }
 
         public static async Task<TResponseModel> GetAsync<TResponseModel, TErrorResult>(string path, string token = null)
         {
-            try
-            {
-                return await SendAsync<TResponseModel, TErrorResult>(path, null, token, HttpMethod.Get);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await SendAsync<TResponseModel, TErrorResult>(path, null, token, HttpMethod.Get);
         }
 
         #endregion
@@ -186,51 +102,23 @@ namespace SHBL.SPT.UI.WebApi
 
         public static TResponseModel Delete<TResponseModel>(string path, object model = null, string token = null)
         {
-            try
-            {
-                return Delete<TResponseModel, ModelStateErrorResult>(path, model, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Delete<TResponseModel, ModelStateErrorResult>(path, model, token);
         }
 
         public static TResponseModel Delete<TResponseModel>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return Delete<TResponseModel, ModelStateErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Delete<TResponseModel, ModelStateErrorResult>(path, content, token);
         }
 
         public static TResponseModel Delete<TResponseModel, TErrorResult>(string path, object model = null, string token = null)
         {
-            try
-            {
-                StringContent content = GetContent(model);
-                return Delete<TResponseModel, TErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var content = GetContent(model);
+            return Delete<TResponseModel, TErrorResult>(path, content, token);
         }
 
         public static TResponseModel Delete<TResponseModel, TErrorResult>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return Send<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Delete);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return Send<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Delete);
         }
 
         #endregion
@@ -239,51 +127,23 @@ namespace SHBL.SPT.UI.WebApi
 
         public static async Task<TResponseModel> DeleteAsync<TResponseModel>(string path, object model = null, string token = null)
         {
-            try
-            {
-                return await DeleteAsync<TResponseModel, ModelStateErrorResult>(path, model, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await DeleteAsync<TResponseModel, ModelStateErrorResult>(path, model, token);
         }
 
         public static async Task<TResponseModel> DeleteAsync<TResponseModel>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return await DeleteAsync<TResponseModel, ModelStateErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await DeleteAsync<TResponseModel, ModelStateErrorResult>(path, content, token);
         }
 
         public static async Task<TResponseModel> DeleteAsync<TResponseModel, TErrorResult>(string path, object model = null, string token = null)
         {
-            try
-            {
-                StringContent content = GetContent(model);
-                return await DeleteAsync<TResponseModel, TErrorResult>(path, content, token);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var content = GetContent(model);
+            return await DeleteAsync<TResponseModel, TErrorResult>(path, content, token);
         }
 
         public static async Task<TResponseModel> DeleteAsync<TResponseModel, TErrorResult>(string path, HttpContent content = null, string token = null)
         {
-            try
-            {
-                return await SendAsync<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Delete);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await SendAsync<TResponseModel, TErrorResult>(path, content, token, HttpMethod.Delete);
         }
 
         #endregion
@@ -294,112 +154,91 @@ namespace SHBL.SPT.UI.WebApi
 
         private static StringContent GetContent(object model)
         {
-            try
-            {
-                StringContent content = null;
+            StringContent content = null;
 
-                if (model != null)
-                {
-                    content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-                }
-
-                return content;
-            }
-            catch (Exception)
+            if (model != null)
             {
-                throw;
+                content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
             }
+
+            return content;
         }
 
         private static TResponseModel Send<TResponseModel, TErrorResult>(string path, HttpContent content, string token, HttpMethod method)
         {
-            try
+            using (var client = new HttpClient())
             {
-                using (var client = new HttpClient())
+                var request = new HttpRequestMessage(method, new Uri(path));
+
+                if (content != null)
                 {
-                    HttpRequestMessage request = new HttpRequestMessage(method, new Uri(path));
+                    request.Content = content;
+                }
 
-                    if (content != null)
+                if (!string.IsNullOrEmpty(token))
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
+
+                var result = client.SendAsync(request).Result;
+                var json = result.Content.ReadAsStringAsync().Result;
+
+                json = FixJson(json);
+
+                if (result.IsSuccessStatusCode)
+                {
+                    return JsonConvert.DeserializeObject<TResponseModel>(json);
+                }
+                else
+                {
+                    if (result.StatusCode != HttpStatusCode.Unauthorized)
                     {
-                        request.Content = content;
-                    }
-
-                    if (!String.IsNullOrEmpty(token))
-                    {
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    }
-
-                    var result = client.SendAsync(request).Result;
-                    String json = result.Content.ReadAsStringAsync().Result;
-
-                    json = FixJson(json);
-
-                    if (result.IsSuccessStatusCode)
-                    {
-                        return JsonConvert.DeserializeObject<TResponseModel>(json);
+                        throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
                     }
                     else
                     {
-                        if (result.StatusCode != HttpStatusCode.Unauthorized)
-                        {
-                            throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
-                        }
-                        else
-                        {
-                            throw new UnauthorizedApiException();
-                        }
+                        throw new UnauthorizedApiException();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
         private static async Task<TResponseModel> SendAsync<TResponseModel, TErrorResult>(string path, HttpContent content, string token, HttpMethod method)
         {
-            try
+            using (var client = new HttpClient())
             {
-                using (var client = new HttpClient())
+                var request = new HttpRequestMessage(method, new Uri(path));
+
+                if (content != null)
                 {
-                    HttpRequestMessage request = new HttpRequestMessage(method, new Uri(path));
+                    request.Content = content;
+                }
 
-                    if (content != null)
+                if (!String.IsNullOrEmpty(token))
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
+
+                var result = await client.SendAsync(request);
+                var json = await result.Content.ReadAsStringAsync();
+
+                json = FixJson(json);
+
+                if (result.IsSuccessStatusCode)
+                {
+                    return JsonConvert.DeserializeObject<TResponseModel>(json);
+                }
+                else
+                {
+                    if (result.StatusCode != HttpStatusCode.Unauthorized)
                     {
-                        request.Content = content;
-                    }
-
-                    if (!String.IsNullOrEmpty(token))
-                    {
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    }
-
-                    var result = await client.SendAsync(request);
-                    String json = await result.Content.ReadAsStringAsync();
-
-                    json = FixJson(json);
-
-                    if (result.IsSuccessStatusCode)
-                    {
-                        return JsonConvert.DeserializeObject<TResponseModel>(json);
+                        throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
                     }
                     else
                     {
-                        if (result.StatusCode != HttpStatusCode.Unauthorized)
-                        {
-                            throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
-                        }
-                        else
-                        {
-                            throw new UnauthorizedApiException();
-                        }
+                        throw new UnauthorizedApiException();
                     }
                 }
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
 

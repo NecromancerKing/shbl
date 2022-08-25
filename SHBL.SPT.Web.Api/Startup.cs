@@ -3,8 +3,6 @@ using Microsoft.Owin;
 using Owin;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
-using SHBL.SPT.DALFactory;
-using System.IO;
 
 [assembly: OwinStartup(typeof(SHBL.SPT.UI.WebApi.Startup))]
 
@@ -17,11 +15,10 @@ namespace SHBL.SPT.UI.WebApi
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
-            RepositoryFactory.Instance.Initialize(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin\\SHBL.SPT.DAL.Repository.dll"));
+            // TODO: feed user service through DI
+            var provider = new ApplicationAuthorizationServerProvider(null);
 
-            var provider = new ApplicationAuthorizationServerProvider();
-
-            OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
+            var options = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
@@ -32,7 +29,7 @@ namespace SHBL.SPT.UI.WebApi
             app.UseOAuthAuthorizationServer(options);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
-            HttpConfiguration config = new HttpConfiguration();
+            var config = new HttpConfiguration();
             WebApiConfig.Register(config);
         }
     }

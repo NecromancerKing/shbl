@@ -6,43 +6,28 @@ using System.Linq.Expressions;
 
 namespace SHBL.SPT.BASE.Repository
 {
-    public abstract class BaseRepository<C, T> :
+    public abstract class RepositoryBase<C, T> :
         IRepository<T>
         where T : class
         where C : DbContext
     {
+        public virtual DbContext BaseContext { get; set; }
 
-        private DbContext _baseContext;
-        public virtual DbContext BaseContext
-        {
-            get { return _baseContext; }
-            set { _baseContext = value; }
-        }
-
-        public C Context
-        {
-            get
-            {
-                return BaseContext as C;
-            }
-        }
+        public C Context => BaseContext as C;
 
         public virtual IQueryable<T> GetAll()
         {
-            IQueryable<T> query = BaseContext.Set<T>();
-            return query;
+            return BaseContext.Set<T>();
         }
 
         public T FindById(object i)
         {
-            T query = BaseContext.Set<T>().Find(i);
-            return query;
+            return BaseContext.Set<T>().Find(i);
         }
 
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            IQueryable<T> query = BaseContext.Set<T>().Where(predicate);
-            return query;
+            return BaseContext.Set<T>().Where(predicate);
         }
 
         public virtual void Add(T entity)

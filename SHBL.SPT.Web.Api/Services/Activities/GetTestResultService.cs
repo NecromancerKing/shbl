@@ -1,48 +1,35 @@
-﻿using SHBL.SPT.ApiFactory.Core;
-using SHBL.SPT.Business;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using SHBL.SPT.Business.Interfaces;
 using SHBL.SPT.UI.Model.Activities;
-using System;
-using System.Linq;
+using SHBL.SPT.UI.Model.Core;
 
 namespace SHBL.SPT.UI.WebApi.Services.Activities
 {
     public class GetTestResultService : RequestServiceBase<GetTestResultResponse>
     {
-        public override GetTestResultResponse ProcessRequest()
+        private readonly IUserActivityService _userActivityService;
+        private readonly AuthContext _authContext;
+
+        public GetTestResultService(IUserActivityService userActivityService, AuthContext authContext)
         {
-            GetTestResultResponse response = new GetTestResultResponse();
-            try
-            {
-                using (var uow = new SptUnitOfWork())
-                {
-                    string username = AuthContext.Instance.UserName;
+            _userActivityService = userActivityService;
+            _authContext = authContext;
+        }
 
-                    var latestActivity = uow.UserActivityRepository.FindBy(t => t.SptUser.Username == username && t.FinishDate != null).OrderByDescending(t => t.FinishDate).FirstOrDefault();
-                    if (latestActivity != null)
-                    {
-                        if (latestActivity.Activity.IsTest)
-                        {
-                            response.Total = latestActivity.SptUserActivityDetails.Count();
-                            response.Corrects = latestActivity.SptUserActivityDetails.Where(t => t.Result == true).Count();
-                            response.Wrongs = response.Total - response.Corrects;
-                        }
-                        else
-                        {
-                            response = null;
-                        }
-                    }
-                    else
-                    {
-                        response = null;
-                    }
-                }
+        public override async Task<GetTestResultResponse> ProcessRequest()
+        {
+            var latestActivity = await _userActivityService.GetLatestUserActivityAsync(_authContext.UserName);
 
-                return response;
-            }
-            catch (Exception)
+            if (latestActivity is null || !latestActivity.Activity.IsTest) return null;
+            var response = new GetTestResultResponse
             {
-                throw;
-            }
+                Total = latestActivity.SptUserActivityDetails.Count,
+                Corrects = latestActivity.SptUserActivityDetails.Count(t => t.Result == true)
+            };
+
+            response.Wrongs = response.Total - response.Corrects;
+            return response;
         }
     }
 }

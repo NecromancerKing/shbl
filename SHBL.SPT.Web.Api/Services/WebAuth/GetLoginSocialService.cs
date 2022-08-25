@@ -1,25 +1,14 @@
-﻿using SHBL.SPT.ApiFactory.Core;
+﻿using System.Threading.Tasks;
+using SHBL.SPT.UI.Model.Core;
 using SHBL.SPT.UI.Model.WebAuth.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SHBL.SPT.UI.WebApi.Services.WebAuth
 {
     public class GetLoginSocialService : RequestServiceBase<GetLoginSocialResponse>
     {
-        public override GetLoginSocialResponse ProcessRequest()
+        public override async Task<GetLoginSocialResponse> ProcessRequest()
         {
-            var response = new GetLoginSocialResponse();
-            try
-            {
-                return response;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await Task.FromResult(new GetLoginSocialResponse());
         }
     }
 }

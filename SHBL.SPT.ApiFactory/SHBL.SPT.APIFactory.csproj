@@ -50,28 +50,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Abstractions.5.11.7\lib\net48\Unity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Container.5.11.11\lib\net48\Unity.Container.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Interception, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Interception.5.11.1\lib\net47\Unity.Interception.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\FactoryBase.cs" />
-    <Compile Include="Core\IRequestService.cs" />
-    <Compile Include="Core\RequestServiceBase.cs" />
-    <Compile Include="Core\RequestServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SHBL.SPT.BASE\SHBL.SPT.BASE.csproj">
-      <Project>{1adef882-4613-4e2b-ae60-5cb78ea717e6}</Project>
-      <Name>SHBL.SPT.BASE</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SHBL.SPT.UI.Model\SHBL.SPT.UI.Model.csproj">
       <Project>{863de0cf-332d-4541-b399-eaa9c692c239}</Project>
       <Name>SHBL.SPT.UI.Model</Name>

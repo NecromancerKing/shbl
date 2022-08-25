@@ -1,7 +1,7 @@
-﻿using SHBL.SPT.ApiFactory.Core;
-using SHBL.SPT.UI.Model.Account.Requests;
+﻿using SHBL.SPT.UI.Model.Account.Requests;
 using SHBL.SPT.UI.WebApi.Services.Account;
 using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace SHBL.SPT.UI.WebApi.Controllers
@@ -9,14 +9,31 @@ namespace SHBL.SPT.UI.WebApi.Controllers
     [RoutePrefix("Account")]
     public class AccountController : ApiController
     {
+        private readonly GetUserProfileService _getUserProfileService;
+        private readonly GetAddUserService _getAddUserService;
+        private readonly UpdateProfileService _updateProfileService;
+        private readonly AddUserService _addUserService;
+
+        public AccountController(
+            GetUserProfileService getUserProfileService, 
+            GetAddUserService getAddUserService,
+            UpdateProfileService updateProfileService, 
+            AddUserService addUserService)
+        {
+            _getUserProfileService = getUserProfileService;
+            _getAddUserService = getAddUserService;
+            _updateProfileService = updateProfileService;
+            _addUserService = addUserService;
+        }
+
         [HttpGet]
         [Authorize]
         [Route("UserProfile")]
-        public IHttpActionResult UserProfile()
+        public async Task<IHttpActionResult> UserProfile()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetUserProfileService>().ProcessRequest();
+                var response = await _getUserProfileService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -28,11 +45,11 @@ namespace SHBL.SPT.UI.WebApi.Controllers
         [HttpGet]
         [Authorize]
         [Route("GetAddUser")]
-        public IHttpActionResult GetAddUser()
+        public async Task<IHttpActionResult> GetAddUser()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetAddUserService>().ProcessRequest();
+                var response = await _getAddUserService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -44,7 +61,7 @@ namespace SHBL.SPT.UI.WebApi.Controllers
         [HttpPost]
         [Authorize]
         [Route("UpdateProfile")]
-        public IHttpActionResult UpdateProfile(UpdateProfileRequest request)
+        public async Task<IHttpActionResult> UpdateProfile(UpdateProfileRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +70,7 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<UpdateProfileService>().ProcessRequest(request);
+                var response = await _updateProfileService.ProcessRequest(request);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -66,7 +83,7 @@ namespace SHBL.SPT.UI.WebApi.Controllers
         [HttpPost]
         [Authorize]
         [Route("AddUser")]
-        public IHttpActionResult AddUser(AddUserRequest request)
+        public async Task<IHttpActionResult> AddUser(AddUserRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +92,7 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<AddUserService>().ProcessRequest(request);
+                var response = await _addUserService.ProcessRequest(request);
                 return Ok(response);
             }
             catch (Exception ex)

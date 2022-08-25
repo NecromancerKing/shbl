@@ -1,16 +1,11 @@
-﻿using SHBL.SPT.BASE.Providers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-using System.Web;
 
 namespace SHBL.SPT.UI.WebApi.Helper
 {
-    public class MailHleper : SafeSingletonProvider<MailHleper>
+    public class MailHelper
     {
-        public void SendMail(string to, string subject, string body)
+        public static void SendMail(string to, string subject, string body)
         {
             var fromAddress = new MailAddress("oratio.spt@gmail.com");
             var toAddress = new MailAddress(to);

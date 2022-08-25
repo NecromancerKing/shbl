@@ -1,25 +1,14 @@
-﻿using SHBL.SPT.ApiFactory.Core;
+﻿using System.Threading.Tasks;
+using SHBL.SPT.UI.Model.Core;
 using SHBL.SPT.UI.Model.WebAuth.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SHBL.SPT.UI.WebApi.Services.WebAuth
 {
     public class GetAuthHomeService : RequestServiceBase<GetAuthHomeResponse>
     {
-        public override GetAuthHomeResponse ProcessRequest()
+        public override async Task<GetAuthHomeResponse> ProcessRequest()
         {
-            var response = new GetAuthHomeResponse();
-            try
-            {
-                return response;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await Task.FromResult(new GetAuthHomeResponse());
         }
     }
 }

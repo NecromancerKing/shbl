@@ -8,13 +8,9 @@ namespace SHBL.SPT.UI.WebApi
         protected override void HandleUnauthorizedRequest(HttpActionContext actionContext)
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
-            {
                 base.HandleUnauthorizedRequest(actionContext);
-            }
             else
-            {
                 actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Forbidden);
-            }
         }
     }
 }

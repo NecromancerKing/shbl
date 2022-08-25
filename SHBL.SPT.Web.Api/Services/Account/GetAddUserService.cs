@@ -1,22 +1,14 @@
-﻿using SHBL.SPT.ApiFactory.Core;
+﻿using System.Threading.Tasks;
 using SHBL.SPT.UI.Model.Account.Responses;
-using System;
+using SHBL.SPT.UI.Model.Core;
 
 namespace SHBL.SPT.UI.WebApi.Services.Account
 {
     public class GetAddUserService : RequestServiceBase<GetAddUserResponse>
     {
-        public override GetAddUserResponse ProcessRequest()
+        public override async Task<GetAddUserResponse> ProcessRequest()
         {
-            var response = new GetAddUserResponse();
-            try
-            {
-                return response;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await Task.FromResult(new GetAddUserResponse());
         }
     }
 }

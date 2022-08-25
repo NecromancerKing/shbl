@@ -1,7 +1,6 @@
-﻿using SHBL.SPT.ApiFactory.Core;
-using SHBL.SPT.UI.Model.WebAuth;
-using SHBL.SPT.UI.WebApi.Services.WebAuth;
+﻿using SHBL.SPT.UI.WebApi.Services.WebAuth;
 using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace SHBL.SPT.UI.WebApi.Controllers
@@ -9,13 +8,33 @@ namespace SHBL.SPT.UI.WebApi.Controllers
     [RoutePrefix("WebAuth")]
     public class WebAuthController : ApiController
     {
+        private readonly GetAuthHomeService _getAuthHomeService;
+        private readonly GetLoginService _getLoginService;
+        private readonly GetForgetPasswordService _getForgetPasswordService;
+        private readonly GetLoginSocialService _getLoginSocialService;
+        private readonly GetRegisterService _getRegisterService;
+
+        public WebAuthController(
+            GetAuthHomeService getAuthHomeService,
+            GetLoginService getLoginService,
+            GetForgetPasswordService getForgetPasswordService,
+            GetLoginSocialService getLoginSocialService,
+            GetRegisterService getRegisterService)
+        {
+            _getAuthHomeService = getAuthHomeService;
+            _getLoginService = getLoginService;
+            _getForgetPasswordService = getForgetPasswordService;
+            _getLoginSocialService = getLoginSocialService;
+            _getRegisterService = getRegisterService;
+        }
+
         [HttpGet]
         [Route("AuthHome")]
-        public IHttpActionResult AuthHome()
+        public async Task<IHttpActionResult> AuthHome()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetAuthHomeService>().ProcessRequest();
+                var response = await _getAuthHomeService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -26,11 +45,11 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
         [HttpGet]
         [Route("Login")]
-        public IHttpActionResult Login()
+        public async Task<IHttpActionResult> Login()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetLoginService>().ProcessRequest();
+                var response = await _getLoginService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -41,11 +60,11 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
         [HttpGet]
         [Route("ForgetPassword")]
-        public IHttpActionResult ForgetPassword()
+        public async Task<IHttpActionResult> ForgetPassword()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetForgetPasswordService>().ProcessRequest();
+                var response = await _getForgetPasswordService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -56,11 +75,11 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
         [HttpGet]
         [Route("LoginSocial")]
-        public IHttpActionResult LoginSocial()
+        public async Task<IHttpActionResult> LoginSocial()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetLoginSocialService>().ProcessRequest();
+                var response = await _getLoginSocialService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)
@@ -71,11 +90,11 @@ namespace SHBL.SPT.UI.WebApi.Controllers
 
         [HttpGet]
         [Route("Register")]
-        public IHttpActionResult Register()
+        public async Task<IHttpActionResult> Register()
         {
             try
             {
-                var response = RequestServiceFactory.Instance.Resolve<GetRegisterService>().ProcessRequest();
+                var response = await _getRegisterService.ProcessRequest();
                 return Ok(response);
             }
             catch (Exception ex)

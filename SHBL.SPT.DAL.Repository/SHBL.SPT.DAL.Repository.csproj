@@ -56,17 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CFTypeSpeakerRepository.cs" />
-    <Compile Include="Repository\CFTypeRepository.cs" />
-    <Compile Include="Repository\EventLogRepository.cs" />
-    <Compile Include="Repository\SpeakerRepository.cs" />
-    <Compile Include="Repository\ActivityRepository.cs" />
-    <Compile Include="Repository\PersonRepository.cs" />
-    <Compile Include="Repository\UserActivityDetailRepository.cs" />
-    <Compile Include="Repository\UserActivityRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="Repository\WordRepository.cs" />
-    <Compile Include="Repository\WordSpeakerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SHBL.SPT.BASE\SHBL.SPT.BASE.csproj">

@@ -56,8 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUnitOfWork.cs" />
-    <Compile Include="Providers\SafeSingletonProvider.cs" />
-    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,7 +10,7 @@ namespace SHBL.SPT.DAL.Context
 {
     public class SptContext : DbContext
     {
-        private static string SptConnection = ConfigurationManager.ConnectionStrings["SPTDB"].ConnectionString;
+        private static readonly string SptConnection = ConfigurationManager.ConnectionStrings["SPTDB"].ConnectionString;
 
         public SptContext()
             : base(SptConnection)
