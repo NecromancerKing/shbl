@@ -60,18 +60,18 @@ namespace Shbl.Spt.WebApi.Core.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("token")]
-        public async Task<IActionResult> Post([FromBody]LoginModel loginModel)
+        public async Task<IActionResult> Post([FromBody] LoginModel loginModel)
         {
             if (!ModelState.IsValid) return BadRequest();
 
             var user = await _userService.GetByUsernameAndPasswordAsync(loginModel.Username, loginModel.Password);
             if (user is null)
-            {
                 return Unauthorized();
-            }
 
             var claims = new[]
             {
+                new Claim(ClaimTypes.Name, loginModel.Username),
+                new Claim(ClaimTypes.Email, loginModel.Username),
                 new Claim(JwtRegisteredClaimNames.Sub, loginModel.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
@@ -83,7 +83,8 @@ namespace Shbl.Spt.WebApi.Core.Controllers
                 claims: claims,
                 expires: DateTime.UtcNow.AddDays(60),
                 notBefore: DateTime.UtcNow,
-                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"])),
+                signingCredentials: new SigningCredentials(
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"])),
                     SecurityAlgorithms.HmacSha256)
             );
 

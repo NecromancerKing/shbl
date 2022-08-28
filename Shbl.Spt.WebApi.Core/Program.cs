@@ -10,9 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(jwtBearerOptions =>
+    .AddJwtBearer(options =>
     {
-        jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateActor = true,
             ValidateAudience = true,

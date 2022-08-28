@@ -163,78 +163,74 @@ namespace Shbl.Spt.WebApi.Core
 
         private static TResponseModel Send<TResponseModel, TErrorResult>(string path, HttpContent content, string token, HttpMethod method)
         {
-            using (var client = new HttpClient())
+            using var client = new HttpClient();
+            var request = new HttpRequestMessage(method, new Uri(path));
+
+            if (content != null)
             {
-                var request = new HttpRequestMessage(method, new Uri(path));
+                request.Content = content;
+            }
 
-                if (content != null)
+            if (!string.IsNullOrEmpty(token))
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            var result = client.SendAsync(request).Result;
+            var json = result.Content.ReadAsStringAsync().Result;
+
+            json = FixJson(json);
+
+            if (result.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<TResponseModel>(json);
+            }
+            else
+            {
+                if (result.StatusCode != HttpStatusCode.Unauthorized)
                 {
-                    request.Content = content;
-                }
-
-                if (!string.IsNullOrEmpty(token))
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                }
-
-                var result = client.SendAsync(request).Result;
-                var json = result.Content.ReadAsStringAsync().Result;
-
-                json = FixJson(json);
-
-                if (result.IsSuccessStatusCode)
-                {
-                    return JsonConvert.DeserializeObject<TResponseModel>(json);
+                    throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
                 }
                 else
                 {
-                    if (result.StatusCode != HttpStatusCode.Unauthorized)
-                    {
-                        throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
-                    }
-                    else
-                    {
-                        throw new UnauthorizedApiException();
-                    }
+                    throw new UnauthorizedApiException();
                 }
             }
         }
 
         private static async Task<TResponseModel> SendAsync<TResponseModel, TErrorResult>(string path, HttpContent content, string token, HttpMethod method)
         {
-            using (var client = new HttpClient())
+            using var client = new HttpClient();
+            var request = new HttpRequestMessage(method, new Uri(path));
+
+            if (content != null)
             {
-                var request = new HttpRequestMessage(method, new Uri(path));
+                request.Content = content;
+            }
 
-                if (content != null)
+            if (!string.IsNullOrEmpty(token))
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            var result = await client.SendAsync(request);
+            var json = await result.Content.ReadAsStringAsync();
+
+            json = FixJson(json);
+
+            if (result.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<TResponseModel>(json);
+            }
+            else
+            {
+                if (result.StatusCode != HttpStatusCode.Unauthorized)
                 {
-                    request.Content = content;
-                }
-
-                if (!String.IsNullOrEmpty(token))
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                }
-
-                var result = await client.SendAsync(request);
-                var json = await result.Content.ReadAsStringAsync();
-
-                json = FixJson(json);
-
-                if (result.IsSuccessStatusCode)
-                {
-                    return JsonConvert.DeserializeObject<TResponseModel>(json);
+                    throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
                 }
                 else
                 {
-                    if (result.StatusCode != HttpStatusCode.Unauthorized)
-                    {
-                        throw new ApiException<TErrorResult>("Unable to perform Http action.", json);
-                    }
-                    else
-                    {
-                        throw new UnauthorizedApiException();
-                    }
+                    throw new UnauthorizedApiException();
                 }
             }
         }
