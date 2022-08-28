@@ -31,25 +31,12 @@ namespace Shbl.Spt.WebApi.Core.Controllers
         public async Task<IActionResult> Register(RegisterRequest request)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             try
             {
                 await _registerService.ProcessRequest(request);
-
-                var authEndPoint = _configuration["AuthEndPoint"];
-                var path = $"{authEndPoint}Token";
-
-                var content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
-                {
-                    new("grant_type", "password"),
-                    new("userName", request.Email),
-                    new("password", request.Password)
-                });
-
-                return Ok(HttpClientUtility.Post<TokenResponse, ErrorResult>(path, content));
+                return Ok(new RegisterResponse());
             }
             catch (Exception ex)
             {
@@ -62,7 +49,8 @@ namespace Shbl.Spt.WebApi.Core.Controllers
         [Route("token")]
         public async Task<IActionResult> Post([FromBody] LoginModel loginModel)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) 
+                return BadRequest();
 
             var user = await _userService.GetByUsernameAndPasswordAsync(loginModel.Username, loginModel.Password);
             if (user is null)
