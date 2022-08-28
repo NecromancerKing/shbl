@@ -91,6 +91,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.8\ref\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -221,20 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SHBL.SPT.Business\SHBL.SPT.Business.csproj">
-      <Project>{61d96beb-ca46-4d42-9968-4c00ab1052b8}</Project>
-      <Name>SHBL.SPT.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SHBL.SPT.Model\SHBL.SPT.Model.csproj">
-      <Project>{fbde09f0-a281-42a6-b6a3-743e311323f1}</Project>
-      <Name>SHBL.SPT.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SHBL.SPT.UI.Model\SHBL.SPT.UI.Model.csproj">
-      <Project>{863de0cf-332d-4541-b399-eaa9c692c239}</Project>
-      <Name>SHBL.SPT.UI.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

@@ -88,11 +88,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SHBL.SPT.Model\SHBL.SPT.Model.csproj">
-      <Project>{fbde09f0-a281-42a6-b6a3-743e311323f1}</Project>
-      <Name>SHBL.SPT.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

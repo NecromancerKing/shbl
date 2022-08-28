@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shbl.Spt.Dal.Core\Shbl.Spt.Dal.Core.csproj" />
+    <ProjectReference Include="..\Shbl.Spt.Model.Core\Shbl.Spt.Model.Core.csproj" />
+  </ItemGroup>
+
+</Project>

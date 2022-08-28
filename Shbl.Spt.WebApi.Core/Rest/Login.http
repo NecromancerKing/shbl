@@ -1,0 +1,13 @@
+POST http://localhost:5230/api/Auth/token HTTP/1.1
+content-type: application/json
+
+{
+  "username": "rostami.siavash@gmail.com",
+  "password": "111111"
+}
+
+###
+
+GET http://localhost:5230/api/Account/UserProfile
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyb3N0YW1pLnNpYXZhc2hAZ21haWwuY29tIiwianRpIjoiN2IzZTAxYzUtMGU0Yi00NzY4LWIyNzAtYWZjY2Q5NDNjM2FkIiwibmJmIjoxNjYxNzE1OTAwLCJleHAiOjE2NjY4OTk5MDAsImlzcyI6Im9yYXRpbyIsImF1ZCI6Im9yYXRpbyJ9.gaiGY_enYvfPeXyQGvszk1xGj9XlIH-Dt4TY5TIqd44
