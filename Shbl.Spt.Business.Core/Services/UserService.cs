@@ -50,14 +50,14 @@ namespace Shbl.Spt.Business.Core.Services
                 throw new Exception("Email address is not available!");
 
             var cfs =
-                from c in _context.CfTypes
-                join p in _context.Persons.Where(t =>
+                from c in _context.CfTypes.AsEnumerable()
+                join p in _context.Persons.AsEnumerable().Where(t =>
                         t.AgeGroup == (Person.AgeGroupEnum)dto.AgeGroup &&
-                        t.ProficiencyLevel == (Person.ProficiencyLevelEnum)dto.ProficiencyLevel) on c.Id equals p.CfType
-                        .Id
+                        t.ProficiencyLevel == (Person.ProficiencyLevelEnum)dto.ProficiencyLevel) 
+                    on c.Id equals p.CfType.Id
                     into ps
                 from q in ps.DefaultIfEmpty()
-                select new { cf = c, cnt = q.CfType != null ? ps.Count(t => t.CfType.Id == c.Id) : 0 };
+                select new { cf = c, cnt = q?.CfType is null ? 0 : ps.Count(t => t.CfType.Id == c.Id) };
 
             var next = cfs.OrderBy(t => t.cnt).ThenBy(t => t.cf.Id).First().cf;
 
